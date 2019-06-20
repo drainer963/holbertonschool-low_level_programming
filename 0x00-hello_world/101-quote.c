@@ -1,21 +1,17 @@
-
 #include <unistd.h>
 #include <sys/syscall.h>
-
+#include <stdio.h>
+#include <errno.h>
 /**
  * main - Entry point
  *
  * Return: Always 1 (Success)
  */
 
-int main()
+int main(void)
 
 {
+perror("and that piece of art is useful\" - Dora Korpar, 2015-10-19");
 
-const char msg[] = "and that piece of art is useful\" - Dora Korpar, 2015-10-19\n";
-
-syscall(SYS_write, 1, msg, sizeof(msg));
-
- return (1);
-
+return (1);
 }
