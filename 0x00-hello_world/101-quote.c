@@ -1,9 +1,15 @@
-    #include <stdio.h>
-     
-    int write(int filedes, const char *buf, unsigned int nbyte);
-    int main( int argc, char** argv )
-    {
-      write(1, "and that piece of art is useful\" - Dora Korpar, 2015-10-19\n", 40);
-     
-       return 0;
-    }
+#include <unistd.h>
+
+#include <sys/syscall.h>
+
+int main(void)
+
+{
+
+const char msg[] = "and that piece of art is useful\" - Dora Korpar, 2015-10-19\n";
+
+syscall(SYS_write, 1, msg, sizeof(msg));
+
+ return 0;
+
+}
