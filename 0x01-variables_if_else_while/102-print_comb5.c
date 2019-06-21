@@ -13,18 +13,13 @@ int main(void)
 	{
 		for (b = a + 1; b <= 99; b++)
 		{
-			int na = (a / 10) + '0';
-			int nb = (a % 10) + '0';
-			int nc = (b / 10) + '0';
-			int nd = (b % 10) + '0';
-
-			putchar(na);
-			putchar(nb);
+			putchar((a / 10) + '0');
+			putchar((a % 10) + '0');
 			putchar(' ');
-			putchar(nc);
-			putchar (nd);
+			putchar((b / 10) + '0');
+			putchar((b % 10) + '0');
 
-			if (na != '9' || nb != '8' || nc != '9' || nd != '9')
+			if (a < 98)
 			{
 				putchar(',');
 				putchar(' ');
