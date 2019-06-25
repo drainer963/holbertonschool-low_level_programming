@@ -2,6 +2,7 @@
 
 /**
  * print_last_digit - print last digit.
+ * @n: int
  *
  * Return: Always 0.
  */
