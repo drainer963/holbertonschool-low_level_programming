@@ -1,5 +1,6 @@
 #ifndef HOLBERTON_H
 #define HOLBERTON_H
+#include "stdio.h"
 
 int _isupper(int c);
 int _isdigit(int c);
@@ -11,6 +12,7 @@ void more_numbers(void);
 void print_diagonal(int n);
 void print_line(int n);
 void print_square(int size);
+void fizzbuzz(int i);
 
 
 #endif
