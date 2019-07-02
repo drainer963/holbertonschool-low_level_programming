@@ -21,8 +21,8 @@ void puts_half(char *str)
 	str = str - c;
 	while (*str != '\0')
 	{
-		str++;
 		_putchar(*str);
+		str++;
+		_putchar('\n');
 	}
-	_putchar('\n');
 }
