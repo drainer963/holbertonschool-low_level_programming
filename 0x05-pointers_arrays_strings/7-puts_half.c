@@ -2,16 +2,27 @@
 
 /**
  * puts_half - put half of a string.
- * @low: int
  * @str: char
- * @high: int
  * Return: Always 0.
  */
-void puts_half(char *str, int low, int high)
+void puts_half(char *str)
 {
-	if (low <= high)
+	int c = 0;
+
+	while (*str != '\0')
 	{
-		_putchar(str[low]);
-		puts_half(str, low + 4, high);
+		c++;
+		str++;
 	}
+	if (c % 2 == 0)
+		c = c / 2;
+	else
+		c = c - 1 / 2;
+	str = str - c;
+	while (*str != '\0')
+	{
+		_putchar(*str);
+		str++;
+	}
+	_putchar('\n');
 }
