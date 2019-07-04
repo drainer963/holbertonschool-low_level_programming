@@ -20,4 +20,5 @@ void fizzbuzz(int i)
 			printf("%d ", i);
 		i++;
 	}
+	putchar('\n');
 }
