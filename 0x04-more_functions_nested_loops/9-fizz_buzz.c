@@ -8,9 +8,16 @@
  */
 void fizzbuzz(int i)
 {
-	for (; i < 101;)
+	while (i < 101)
 	{
-		puts(i++ % 5 ? "" : "Buzz");
+		if (i % 15 == 0)
+			printf(" FizzBuzz ");
+		else if (i % 3 == 0)
+			printf(" Fizz ");
+		else if (i % 5 == 0)
+			printf(" Buzz ");
+		else
+			printf("%d ", i);
+		i++;
 	}
-	printf(i % 3 ? i % 5 ? "%d" : "" : "Fizz", i);
 }
