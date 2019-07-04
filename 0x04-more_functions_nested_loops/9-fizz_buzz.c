@@ -1,13 +1,14 @@
 #include "holberton.h"
 #include <stdio.h>
 /**
- * fizzbuzz - check the code for Holberton School students.
- * @i: int
+ * main - fizz buzz
  *
  * Return: Always 0.
  */
-void fizzbuzz(int i)
+int main(void)
 {
+	int i;
+
 	while (i < 101)
 	{
 		if (i % 15 == 0)
