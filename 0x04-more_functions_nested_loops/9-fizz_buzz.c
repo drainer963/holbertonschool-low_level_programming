@@ -1,5 +1,5 @@
 #include "holberton.h"
-
+#include <stdio.h>
 /**
  * fizzbuzz - check the code for Holberton School students.
  * @i: int
