@@ -16,8 +16,13 @@ char *rot13(char *s)
 	for (; *s != '\0'; s++)
 	{
 		for (i = 0; alpha[i] != '\0'; i++)
+		{
 			if (*s == alpha[i])
+			{
 				*s = rot13[i];
+				break;
+			}
+		}
 	}
 	return (rv);
 }
