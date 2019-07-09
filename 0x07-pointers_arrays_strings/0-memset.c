@@ -3,14 +3,14 @@
  * *_memset - set n memory to byte b.
  * @s: char ptr
  * @b: char
- * @n: unsig int
+ * @n: num of bytes
  * Return: Always 0.
  */
 char *_memset(char *s, char b, unsigned int n)
 {
 	unsigned int i;
 
-	for (i = 0; s[i] != '\0'; i++)
+	for (i = 0; i < n; i++)
 		s[i] = b;
 	return (s);
 }
