@@ -9,5 +9,6 @@ unsigned int _strspn(char *s, char *accept);
 char *_strpbrk(char *s, char *accept);
 char *__strchar(char * s, char c);
 char _putchar(int n);
+char *_strstr(char *haystack, char *needle);
 
 #endif
