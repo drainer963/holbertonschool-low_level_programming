@@ -1,6 +1,6 @@
 #include "holberton.h"
 /**
- * _memset - set n memory to byte b.
+ * *_memset - set n memory to byte b.
  * @s: char ptr
  * @b: char
  * @n: unsig int
