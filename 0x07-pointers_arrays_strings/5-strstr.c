@@ -1,7 +1,7 @@
 #include "holberton.h"
 
 /**
- * *_strstr - find needle in haystack and return needle.
+ * *_strstr - find needle in haystack and return pointer to substring.
  * @haystack: char ptr
  * @needle: char ptr
  *
@@ -11,13 +11,10 @@ char *_strstr(char *haystack, char *needle)
 {
 	int i;
 
-	while (*needle != '\0')
+	for (i = 0; haystack[i] != '\0'; i++)
 	{
-		for (i = 0; haystack[i] != '\0'; i++)
-		{
-			if (*needle == haystack[i])
-				return (needle);
-		}
+		if (*needle == haystack[i])
+			return (&haystack[i]);
 	}
 	return (NULL);
 }
