@@ -25,4 +25,5 @@ char *_strdup(char *str)
 		*tmp++ = *str++;
 	*tmp = '\0';
 	return (newstr);
+	return (NULL);
 }
