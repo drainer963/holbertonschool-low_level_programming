@@ -20,10 +20,13 @@ char *_strdup(char *str)
 		len++;
 	}
 	newstr = malloc(len + 1);
+	if (newstr == '\0')
+	{
+		return (NULL);
+	}
 	tmp = newstr;
 	while (*str)
 		*tmp++ = *str++;
 	*tmp = '\0';
 	return (newstr);
-	return (NULL);
 }
