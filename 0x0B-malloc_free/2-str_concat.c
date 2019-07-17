@@ -9,7 +9,6 @@ char *str_concat(char *s1, char *s2)
 {
 	int len, len2, len3;
 	char *retval;
-	int i, j;
 
 	if (s1 == NULL)
 		s1 = "";
@@ -18,16 +17,13 @@ char *str_concat(char *s1, char *s2)
 	len = _strlen(s1);
 	len2 = _strlen(s2);
 	len3 = len + len2;
-	retval = malloc(sizeof(char) * (len3 + 1));
+	retval = malloc(sizeof(char *) * (len3 + 1));
 	if (retval == NULL)
 	{
 		return (NULL);
 	}
-	for (i = 0; s1[i]; i++)
-		retval[i] = s1[i];
-	for (j = 0; s2[j]; j++)
-		retval[j + i] = s2[j];
-	retval[i + j] = '\0';
+	_strcpy(retval, s1);
+	_strcpy(retval + len, s2);
 	return (retval);
 }
 /**
@@ -44,4 +40,24 @@ int _strlen(char *s)
 		l++;
 	}
 	return (l);
+}
+
+/**
+ * _strcpy - copy string
+ * @dest: char
+ * @src: char
+ * Return: Always 0.
+ */
+char *_strcpy(char *dest, char *src)
+{
+	int i = 0;
+
+	while (*src != '\0')
+	{
+		dest[i] = *src;
+		i++;
+		src++;
+	}
+	dest[i] = '\0';
+	return (dest);
 }
