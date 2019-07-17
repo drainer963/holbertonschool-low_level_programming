@@ -7,7 +7,7 @@
  */
 char *str_concat(char *s1, char *s2)
 {
-	int len = _strlen(s1), len2 = _strlen(s2), len3 = len + len2;
+	int len;
 	char *retval;
 	int i, j;
 
@@ -15,6 +15,9 @@ char *str_concat(char *s1, char *s2)
 		s1 = "";
 	if (s2 == NULL)
 		s2 = "";
+	len = _strlen(s1);
+	len2 = _strlen(s2);
+	len3 = len + len2;
 	retval = malloc(sizeof(char) * (len3 + 1));
 	if (retval == NULL)
 	{
