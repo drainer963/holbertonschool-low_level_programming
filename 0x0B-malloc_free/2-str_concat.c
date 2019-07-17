@@ -18,10 +18,6 @@ char *str_concat(char *s1, char *s2)
 	{
 		s2 = "";
 	}
-	if (len3 < len2 + 1)
-	{
-		return (NULL);
-	}
 	retval = malloc(len3);
 	if (!retval)
 	{
