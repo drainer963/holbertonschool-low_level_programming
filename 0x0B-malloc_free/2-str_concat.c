@@ -15,7 +15,7 @@ char *str_concat(char *s1, char *s2)
 		return (NULL);
 	}
 	retval = malloc(len3);
-	if (retval == NULL)
+	if (!retval)
 	{
 		return (NULL);
 	}
