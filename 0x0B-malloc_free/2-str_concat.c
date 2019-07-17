@@ -1,5 +1,4 @@
 #include "holberton.h"
-int _strlen(char *s);
 /**
  * str_concat - function that concatenates two strings.
  * @s1: char pointer
@@ -20,8 +19,8 @@ char *str_concat(char *s1, char *s2)
 	{
 		s2 = "";
 	}
-	retval = malloc(sizeof(char) * len3 + 1);
-	if (!retval)
+	retval = malloc(sizeof(char) * (len3 + 1));
+	if (retval == NULL)
 	{
 		return (NULL);
 	}
