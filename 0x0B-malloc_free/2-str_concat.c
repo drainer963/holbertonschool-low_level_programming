@@ -12,13 +12,9 @@ char *str_concat(char *s1, char *s2)
 	int i, j;
 
 	if (!s1)
-	{
 		s1 = "";
-	}
 	if (!s2)
-	{
 		s2 = "";
-	}
 	retval = malloc(sizeof(char) * (len3 + 1));
 	if (retval == NULL)
 	{
