@@ -1,5 +1,4 @@
 #include "holberton.h"
-char *_strcpy(char *dest, char *src);
 int _strlen(char *s);
 /**
  * str_concat - function that concatenates two strings.
@@ -11,6 +10,7 @@ char *str_concat(char *s1, char *s2)
 {
 	int len = _strlen(s1), len2 = _strlen(s2), len3 = len + len2 + 1;
 	char *retval;
+	int i, j;
 
 	if (!s1)
 	{
@@ -25,28 +25,12 @@ char *str_concat(char *s1, char *s2)
 	{
 		return (NULL);
 	}
-	_strcpy(retval, s1);
-	_strcpy(retval + len, s2);
+	for (i = 0; s1[i]; i++)
+		retval[i] = s1[i];
+	for (j = 0; s2[j]; j++)
+		retval[j + i] = s2[j];
+	retval[i + j] = '\0';
 	return (retval);
-}
-/**
- * _strcpy - copy string
- * @dest: char
- * @src: char
- * Return: Always 0.
- */
-char *_strcpy(char *dest, char *src)
-{
-	int i = 0;
-
-	while (*src != '\0')
-	{
-		dest[i] = *src;
-		i++;
-		src++;
-	}
-	dest[i] = '\0';
-	return (dest);
 }
 /**
  * _strlen - check the length of string
