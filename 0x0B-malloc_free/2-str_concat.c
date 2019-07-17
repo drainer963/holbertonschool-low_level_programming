@@ -11,9 +11,9 @@ char *str_concat(char *s1, char *s2)
 	char *retval;
 	int i, j;
 
-	if (!s1)
+	if (s1 == NULL)
 		s1 = "";
-	if (!s2)
+	if (s2 == NULL)
 		s2 = "";
 	retval = malloc(sizeof(char) * (len3 + 1));
 	if (retval == NULL)
