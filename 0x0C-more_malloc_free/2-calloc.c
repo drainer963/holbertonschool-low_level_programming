@@ -14,8 +14,8 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 		return (NULL);
 	if (nmemb == 0 || size == 0)
 		return (NULL);
-	while (i < nmemb)
+	while (i < nmemb * size)
 		++i;
-	array[i] = '\0';
+	array[i] = 0;
 	return (array);
 }
