@@ -11,9 +11,9 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	unsigned int len, len2, len3, i, j;
 	char *retval;
 
-	if (*s1 == NULL)
+	if (s1 == NULL)
 		s1 = "";
-	if (*s2 == NULL)
+	if (s2 == NULL)
 		s2 = "";
 	len = _strlen(s1);
 	len2 = n;
