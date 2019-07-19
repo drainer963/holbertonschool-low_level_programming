@@ -1,0 +1,22 @@
+#include "holberton.h"
+/**
+ * string_nconcat - function that concatenates two strings.
+ * @s1: char pointer
+ * @s2: char pointer
+ * @n: u int
+ * Return: Always 0.
+ */
+void *_calloc(unsigned int nmemb, unsigned int size)
+{
+	int *array = malloc(nmemb * size);
+	int i = 0;
+
+	if (!array)
+		return (NULL);
+	if (nmemb == 0 || size == 0)
+		return (NULL);
+	while (array[i])
+		array[i] = 0;
+	i++;
+	return (array);
+}
