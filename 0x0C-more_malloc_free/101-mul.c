@@ -1,4 +1,6 @@
- tarts here
+#include "holberton.h"
+/**
+ * main - starts here
  * @argc: the number of arguments
  * @argv: array of pointers to arguments
  *
