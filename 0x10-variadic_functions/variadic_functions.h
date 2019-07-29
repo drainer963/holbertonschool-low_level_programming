@@ -8,9 +8,9 @@
  * @ptr: function ptr type void
  *
  */
-typedef struct op
+typedef struct ops
 {
-	char c;
+	char *ch;
 	void (*ptr)(va_list);
 } op_t;
 
