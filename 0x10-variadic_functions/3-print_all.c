@@ -34,9 +34,11 @@ void p_dub(va_list list)
  */
 void p_str(va_list list)
 {
-	if (list == NULL)
+	char *str = va_arg(list, char *);
+
+	if (!str)
 		printf("(nil)");
-	printf("%s", va_arg(list, char *));
+	printf("%s", str);
 }
 /**
  * print_all - print it alll.
