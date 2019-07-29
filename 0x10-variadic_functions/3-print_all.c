@@ -40,7 +40,10 @@ void p_str(va_list list)
 
 	str = va_arg(list, char *);
 	if (!str)
+	{
 		printf("(nil)");
+		return;
+	}
 	printf("%s", str);
 }
 /**
