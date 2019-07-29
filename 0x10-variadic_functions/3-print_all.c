@@ -51,9 +51,9 @@ void print_all(const char * const format, ...)
 	va_list list;
 
 	op_t op[] = {
-		{"c", car},
-		{"i", num},
-		{"f", dub},
+		{"c", p_char},
+		{"i", p_num},
+		{"f", p_dub},
 		{"s", p_str},
 		{NULL, NULL}
 	};
