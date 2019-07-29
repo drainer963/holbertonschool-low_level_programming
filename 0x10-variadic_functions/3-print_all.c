@@ -49,7 +49,7 @@ void p_str(va_list list)
 void print_all(const char * const format, ...)
 {
 	char *sep = "";
-	int i, j = 0;
+	int i = 0, j = 0;
 
 	op_t op[] = {
 		{"c", p_char},
@@ -61,7 +61,7 @@ void print_all(const char * const format, ...)
 	va_list list;
 
 	va_start(list, format);
-	i = 0;
+
 	while (format && format[i])
 	{
 		j = 0;
@@ -75,6 +75,7 @@ void print_all(const char * const format, ...)
 			}
 			++j;
 		}
+		j = 0;
 		++i;
 	}
 	printf("\n");
