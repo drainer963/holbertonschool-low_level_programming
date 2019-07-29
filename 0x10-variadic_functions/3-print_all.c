@@ -1,5 +1,6 @@
 #include "variadic_functions.h"
 #include <stdarg.h>
+#include <stdio.h>
 /**
  * p_char - prints char.
  *
@@ -35,8 +36,9 @@ void p_dub(va_list list)
  */
 void p_str(va_list list)
 {
-	char *str = va_arg(list, char *);
+	char *str;
 
+	str = va_arg(list, char *);
 	if (!str)
 		printf("(nil)");
 	printf("%s", str);
@@ -72,10 +74,10 @@ void print_all(const char * const format, ...)
 				op[j].ptr(list);
 				sep = ", ";
 			}
-			++j;
+			j++;
 		}
 		j = 0;
-		++i;
+		i++;
 	}
 	printf("\n");
 	va_end(list);
