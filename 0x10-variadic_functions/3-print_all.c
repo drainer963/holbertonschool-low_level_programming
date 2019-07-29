@@ -70,9 +70,9 @@ void print_all(const char * const format, ...)
 				op[j].ptr(list);
 				sep = ", ";
 			}
-			j++;
+			++j;
 		}
-		i++;
+		++i;
 	}
 	printf("\n");
 	va_end(list);
