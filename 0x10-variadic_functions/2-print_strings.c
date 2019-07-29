@@ -25,23 +25,9 @@ void print_strings(const char *separator, const unsigned int n, ...)
 	for (i = 1; i < n; i++)
 	{
 		args = va_arg(list, char *);
-			if (args)
-			{
-				printf("%s%s", args, separator);
-			}
-			else
-			{
-				printf("(nil)");
-			}
+		printf("%s%s", (!args) ? "(nil)" : args, separator);
 	}
 	args = va_arg(list, char *);
-	if (args)
-	{
-		printf("%s\n", args);
-	}
-	else
-	{
-		printf("(nil)");
-	}
+	printf("%s\n", (!args) ? "(nil)" : args);
 	va_end(list);
 }
