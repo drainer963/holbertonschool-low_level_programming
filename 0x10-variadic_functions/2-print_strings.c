@@ -12,8 +12,14 @@ void print_strings(const char *separator, const unsigned int n, ...)
 	unsigned int i;
 	char *args;
 
-	if (separator == 0)
+	if (n == 0)
+	{
+		printf("\n");
 		return;
+	}
+	if (!separator)
+		separator = "";
+
 	va_start(list, n);
 	for (i = 0; i < n; i++)
 	{
