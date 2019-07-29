@@ -3,8 +3,8 @@
 #include <stdio.h>
 #include <stdarg.h>
 /**
- * struct op - struct for va_list functions
- * @c: char
+ * struct ops - struct for va_list functions
+ * @ch: char
  * @ptr: function ptr type void
  *
  */
