@@ -50,6 +50,7 @@ void print_all(const char * const format, ...)
 {
 	char *sep = "";
 	int i = 0, j = 0;
+	va_list list;
 
 	op_t op[] = {
 		{"c", p_char},
@@ -58,13 +59,11 @@ void print_all(const char * const format, ...)
 		{"s", p_str},
 		{NULL, NULL}
 	};
-	va_list list;
 
 	va_start(list, format);
 
 	while (format && format[i])
 	{
-		j = 0;
 		while (op[j].ch)
 		{
 			if (*op[j].ch == format[i])
