@@ -1,60 +1,46 @@
 #include "variadic_functions.h"
 /**
- * main - check the code for Holberton School students.
+ * p_char - prints char.
  *
+ * @list: va list member
  * Return: Always 0.
  */
-void car(va_list list)
+void p_char(va_list list)
 {
 	printf("%c", va_arg(list, int));
 }
 /**
- * main - check the code for Holberton School students.
- *
+ * p_num - print number.
+ * @list: valist
  * Return: Always 0.
  */
-void num(va_list list)
+void p_num(va_list list)
 {
-        printf("%d", va_arg(list, int));
+	printf("%d", va_arg(list, int));
 }
 /**
- * main - check the code for Holberton School students.
- *
+ * p_dub - print double.
+ * @list: valist
  * Return: Always 0.
  */
-void dub(va_list list)
+void p_dub(va_list list)
 {
-       printf("%f", va_arg(list, double));
+	printf("%f", va_arg(list, double));
 }
 /**
- * main - check the code for Holberton School students.
- *
+ * p_str - print string.
+ * @list: valist
  * Return: Always 0.
  */
-void p(va_list list)
+void p_str(va_list list)
 {
-        if ( list == NULL)
-                printf("(nil)");
-        printf("%s", va_arg(list, char *));
+	if (list == NULL)
+		printf("(nil)");
+	printf("%s", va_arg(list, char *));
 }
 /**
- * get_op_func - convert symbol into function
- * @s: string which may correspoind to function
- *
- * Return: function associated with s
- */
-void op_char_ptr(va_list list)
-{
-	char *str;
-
-	str = va_arg(list, char *);
-	if (str == NULL)
-		str = "(nil)";
-	printf("%s", str);
-}
-/**
- * main - check the code for Holberton School students.
- *
+ * print_all - print it alll.
+ * @format: const char pointer
  * Return: Always 0.
  */
 void print_all(const char * const format, ...)
@@ -68,12 +54,14 @@ void print_all(const char * const format, ...)
 		{"c", car},
 		{"i", num},
 		{"f", dub},
-		{"s", p},
+		{"s", p_str},
 		{NULL, NULL}
 	};
 	va_start(list, format);
+	i = 0;
 	while (format && format[i])
 	{
+		j = 0;
 		while (op[j].ch)
 		{
 			if (*op[j].ch == format[i])
