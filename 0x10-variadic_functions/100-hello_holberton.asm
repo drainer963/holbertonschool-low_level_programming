@@ -1,8 +1,7 @@
-global _start
-
+global main
 	section .text
 
-_start:
+main:
 	  mov rax, 1        	; write(
 	  mov rdi, 1        	;   STDOUT_FILENO,
 	  mov rsi, msg      	;   "Hello, world!\n",
@@ -13,6 +12,6 @@ _start:
 	  mov rdi, 0        	;   EXIT_SUCCESS
 	  syscall           	; );
 
-	section .rodata
+	section .data
 msg:	 db "Hello, Holberton", 10
 msglen:	 equ $ - msg
