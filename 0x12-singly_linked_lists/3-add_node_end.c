@@ -18,6 +18,11 @@ list_t *add_node_end(list_t **head, const char *str)
 
 	newNode->next = NULL;
 	newNode->str = strdup(str);
+	if (newNode->str == NULL)
+	{
+		free(newNode);
+		return(NULL);
+	}
 	newNode->len = _strlen(newNode->str);
 	if (!*head)
 	{
