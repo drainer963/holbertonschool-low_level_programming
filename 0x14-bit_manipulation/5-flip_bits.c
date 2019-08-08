@@ -8,8 +8,11 @@
  */
 unsigned int flip_bits(unsigned long int n, unsigned long int m)
 {
+	if (n == m)
+		return (0);
 	return (countSetBits(n ^ m));
 }
+
 /**
  * countSetBits - counts number of bits it has to edit to turn int n to int m
  * @n: int
