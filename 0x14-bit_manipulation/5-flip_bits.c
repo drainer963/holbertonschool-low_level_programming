@@ -1,6 +1,6 @@
 #include "holberton.h"
 /**
- * flip_bits - calls countSetBits and exec it to find num of total flipped bits
+ * flip_bits - finds num of total flipped bits
  * @n: Ul integer
  * @m: Ul integer
  *
@@ -8,25 +8,13 @@
  */
 unsigned int flip_bits(unsigned long int n, unsigned long int m)
 {
-	if (n == m)
-		return (0);
-	return (countSetBits(n ^ m));
-}
-
-/**
- * countSetBits - counts number of bits it has to edit to turn int n to int m
- * @n: int
- *
- * Return: count
- */
-int countSetBits(int n)
-{
 	int i = 0;
+	unsigned long int sum = n ^ m;
 
-	while (n)
+	while (sum)
 	{
-		i += n & 1;
-		n >>= 1;
+		i += sum & 1;
+		sum >>= 1;
 	}
 	return (i);
 }
