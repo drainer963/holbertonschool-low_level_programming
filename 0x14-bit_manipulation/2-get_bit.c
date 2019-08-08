@@ -11,7 +11,7 @@ int get_bit(unsigned long int n, unsigned int index)
 	unsigned int i = 0, *bits = malloc(sizeof(int) * index);
 	unsigned int mask, maskN, bit;
 
-	if (!bits)
+	if (!bits || !n)
 		return (-1);
 
 	while (i < index)
