@@ -17,8 +17,7 @@ At the end of this project, you are expected to be able to explain to anyone, wi
     What is a system call                                                                                   
     What is the difference between a function and a system call                                             
 ## Requirements                                                                                             
-General                                                                                                     
-                                                                                                            
+General                                                                                                          
     Allowed editors: vi, vim, emacs                                                                         
     All your files will be compiled on Ubuntu 14.04 LTS                                                     
     Your programs and functions will be compiled with gcc 4.8.4 using the flags -Wall -Werror -Wextra and -\
