@@ -14,12 +14,17 @@ int create_file(const char *filename, char *text_content)
 
 	if (!filename)
 		return (-1);
+
 	fd = open(filename, O_WRONLY | O_CREAT | O_TRUNC, 0600);
+
 	if (fd == -1)
 		return (-1);
+
 	if (text_content)
 		len2 = write(fd, text_content, len);
+
 	close(fd);
+
 	if (len2 == -1)
 		return (-1);
 	return (1);
@@ -30,11 +35,13 @@ int create_file(const char *filename, char *text_content)
  *
  * Return: The length of the string
  */
-int _strlen(char *s)
+ssize_t _strlen(char *s)
 {
-	int i = 0;
+	ssize_t i = 0;
 
-	for (; s[i]; i++)
-		;
+	if (!s)
+		return (0);
+	while (*s++)
+		i++;
 	return (i);
 }
