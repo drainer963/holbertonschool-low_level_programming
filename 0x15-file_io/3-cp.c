@@ -49,12 +49,8 @@ int main(int argc, char *argv[])
 	close(fd2);
 	}
 	if (fd)
-	{
 		dprintf(STDERR_FILENO, CLOSE, fd), exit(100);
-	}
 	if (fd2)
-	{
 		dprintf(STDERR_FILENO, CLOSE, fd), exit(100);
-	}
 	return (0);
 }
