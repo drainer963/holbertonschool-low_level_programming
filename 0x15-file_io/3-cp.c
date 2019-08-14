@@ -40,13 +40,13 @@ int main(int argc, char *argv[])
 			close(fd);
 			close(fd2);
 		}
-	ret = write(fd2, buf, ret);
-	if (ret == -1)
-	{
-		dprintf(STDERR_FILENO, WRITE, argv[2]), exit(99);
-	}
-	close(fd);
-	close(fd2);
+		ret = write(fd2, buf, ret);
+		if (ret == -1)
+		{
+			dprintf(STDERR_FILENO, WRITE, argv[2]), exit(99);
+		}
+		close(fd);
+		close(fd2);
 	}
 	if (fd)
 		dprintf(STDERR_FILENO, CLOSE, fd), exit(100);
