@@ -22,7 +22,7 @@ void closeFile(int fd)
  * @argc: argument count
  * @argv: argument vector
  *
- * Return: 1
+ * Return: 0
  */
 int main(int argc, char *argv[])
 {
@@ -37,7 +37,6 @@ int main(int argc, char *argv[])
 	if (fd == -1)
 	{
 		dprintf(STDERR_FILENO, READ, argv[1]), exit(98);
-		closeFile(fd);
 	}
 	fd2 = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, 0664);
 	if (fd2 == -1)
@@ -46,14 +45,22 @@ int main(int argc, char *argv[])
 		closeFile(fd);
 		closeFile(fd2);
 	}
-	while ((ret = read(fd, buf, SIZE)) > 0)
+	while ((ret = read(fd, buf, SIZE)))
 	{
-		if (write(fd2, buf, ret) != ret)
+		if (ret == -1)
+		{
+			dprintf(STDERR_FILENO, READ, argv[1]), exit(98);
+			closeFile(fd);
+			closeFile(fd2);
+		}
+		if (write(fd2, buf, ret) == -1)
+		{
 			dprintf(STDERR_FILENO, WRITE, argv[2]), exit(99);
+			close(fd);
+			close(fd2);
+		}
 	}
-	if (ret == -1)
-		dprintf(STDERR_FILENO, READ, argv[1]), exit(98);
 	closeFile(fd);
 	closeFile(fd2);
-	return (1);
+	return (0);
 }
