@@ -1,7 +1,7 @@
 #include "holberton.h"
 #define SIZE 1024
 #define INCORRECT "Usage: cp file_from file_to\n"
-#define READ "Error: Can't read from %s\n"
+#define READ "Error: Can't read from file %s\n"
 #define WRITE "Error: Can't write to %s\n"
 #define CLOSE "Error: Can't close fd %d\n"
 /**

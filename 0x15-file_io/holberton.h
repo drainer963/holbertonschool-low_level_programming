@@ -8,6 +8,7 @@
 #include <unistd.h>
 #include <stdlib.h>
 
+int main(int argc, char *argv[]);
 void closeFile(int fd);
 int append_text_to_file(const char *filename, char *text_content);
 int create_file(const char *filename, char *text_content);
