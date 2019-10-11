@@ -7,7 +7,7 @@
  *
  * Return: Always EXIT_SUCCESS.
  */
-int hash_table_set(hash_table_t *ht, char *key, char *value)
+int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
 	unsigned int slot = hash(key);
 	hash_node_t *node = ht->array[slot];
@@ -44,7 +44,7 @@ int hash_table_set(hash_table_t *ht, char *key, char *value)
  * @value: const char
  * Return: pointer to node
  */
-hash_node_t *ht_pair(char *key, char *value)
+hash_node_t *ht_pair(const char *key, const char *value)
 {
 	hash_node_t *node = malloc(sizeof(hash_node_t) * 1);
 
@@ -65,7 +65,7 @@ hash_node_t *ht_pair(char *key, char *value)
  *
  * Return: pointer to value
  */
-unsigned long hash(char *str)
+unsigned long hash(const char *str)
 {
 	unsigned int hash = 0;
 	int c;
