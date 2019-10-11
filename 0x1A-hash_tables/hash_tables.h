@@ -38,7 +38,7 @@ typedef struct hash_table_s
 } hash_table_t;
 
 hash_node_t *ht_pair(char *key, char *value);
-void hash_table_set(hash_table_t *hashtable, char *key, char *value);
+int hash_table_set(hash_table_t *hashtable, char *key, char *value);
 char *ht_get(hash_table_t *hashtable, char *key);
 void ht_print(hash_table_t *hashtable);
 unsigned long int hash_djb2(const unsigned char *str);

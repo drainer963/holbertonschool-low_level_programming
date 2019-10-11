@@ -1,7 +1,7 @@
 #include "hash_tables.h"
 /**
  * hash - hashes values for keys.
- * @key: const char pointer to keys in table
+ * @str: pointer to string
  *
  * Return: pointer to value
  */
@@ -13,7 +13,7 @@ unsigned long hash(char *str)
 	while ((c = *str++))
 		hash += c;
 
-	return hash;
+	return (hash);
 }
 
 /**
@@ -97,7 +97,12 @@ hash_table_t *hash_table_create(unsigned long int size)
 	}
 	return (NULL);
 }
-
+/**
+ * ht_print - print hashtable elements.
+ * @hashtable: pointer to hashtable
+ *
+ * Return: Always EXIT_SUCCESS.
+ */
 void ht_print(hash_table_t *hashtable)
 {
 	unsigned long int i = 0;
