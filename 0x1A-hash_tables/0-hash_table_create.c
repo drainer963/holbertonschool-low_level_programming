@@ -9,16 +9,17 @@ hash_table_t *hash_table_create(unsigned long int size)
 {
 	hash_table_t *hashtable = malloc(sizeof(hash_table_t));
 
-	hashtable->array = calloc(size, sizeof(hash_node_t *));
-
 	if (!hashtable || !size)
 		return (NULL);
 
-	if (hashtable->array == NULL)
+	hashtable->array = calloc(size, sizeof(hash_node_t *));
+
+	if (!hashtable)
 	{
 		free(hashtable);
 		return (NULL);
 	}
+
 	hashtable->size = size;
 
 	return (hashtable);
