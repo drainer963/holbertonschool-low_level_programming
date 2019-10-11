@@ -1,24 +1,20 @@
 #include "hash_tables.h"
-
 /**
  * hash - hashes values for keys.
  * @key: const char pointer to keys in table
  *
  * Return: pointer to value
  */
-unsigned int hash(const char *key)
+static unsigned long hash(str)unsigned char *str;
 {
-	unsigned long int value = 0;
-	unsigned int i = 0;
-	unsigned int key_len = strlen(key);
+	unsigned long hash = 0;
+	int c;
 
-	for (i = 0; i < key_len; i++)
+	while ((c = *str++))
 	{
-		value = value * 37 + key[i];
+			hash = c + (hash << 6) + (hash << 16) - hash;
 	}
-
-	value = value % TABLE_SIZE;
-	return (value);
+	return hash;
 }
 
 /**
