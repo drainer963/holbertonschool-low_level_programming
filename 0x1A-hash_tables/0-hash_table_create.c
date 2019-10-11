@@ -90,11 +90,6 @@ hash_table_t *hash_table_create(unsigned long int size)
 		}
 		return (hashtable);
 	}
-	if (hashtable != NULL)
-	{
-		free(hashtable);
-		free(hashtable->array);
-	}
 	return (NULL);
 }
 /**
