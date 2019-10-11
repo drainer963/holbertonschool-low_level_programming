@@ -1,5 +1,11 @@
 #include "hash_tables.h"
 
+/**
+ * hash - hashes values for keys.
+ * @key: const char pointer to keys in table
+ *
+ * Return: pointer to value
+ */
 unsigned int hash(const char *key)
 {
 	unsigned long int value = 0;
@@ -8,13 +14,19 @@ unsigned int hash(const char *key)
 
 	for (i = 0; i < key_len; i++)
 	{
-		value = value *37 + key[i];
+		value = value * 37 + key[i];
 	}
 
 	value = value % TABLE_SIZE;
 	return (value);
 }
 
+/**
+ * ht_pair - initializes keys value pairs.
+ * @key: const char
+ * @value: const char
+ * Return: pointer to node
+ */
 hash_node_t *ht_pair(const char *key, const char *value)
 {
 	hash_node_t *node = malloc(sizeof(hash_node_t) * 1);
@@ -30,6 +42,14 @@ hash_node_t *ht_pair(const char *key, const char *value)
 	return (node);
 }
 
+/**
+ * ht_set - sets value of node in table
+ * @hashtable: table of nodes with key/value pairs
+ * @key: pointer to key
+ * @value: pointer to value
+ *
+ * Return: Always EXIT_SUCCESS.
+ */
 void ht_set(hash_table_t *hashtable, const char *key, const char *value)
 {
 	unsigned int slot = hash(key);
@@ -41,8 +61,7 @@ void ht_set(hash_table_t *hashtable, const char *key, const char *value)
 		hashtable->array[slot] = ht_pair(key, value);
 		return;
 	}
-
-      	while (node != NULL)
+	while (node != NULL)
 	{
 		if (strcmp(node->key, key) == 0)
 		{
@@ -58,6 +77,13 @@ void ht_set(hash_table_t *hashtable, const char *key, const char *value)
 	prev->next = ht_pair(key, value);
 }
 
+/**
+ * ht_get - gets value of key in hashtable
+ * @hashtable: table of nodes
+ * @key: pointer to key
+ *
+ * Return: value
+ */
 char *ht_get(hash_table_t *hashtable, const char *key)
 {
 	unsigned int slot = hash(key);
@@ -79,19 +105,35 @@ char *ht_get(hash_table_t *hashtable, const char *key)
 	return (NULL);
 }
 
+/**
+ * hash_table_create - creates our hash table
+ * @size: how many nodes to add before collisions will occuor
+ *
+ * Return: table
+ */
 hash_table_t *hash_table_create(unsigned long int size)
 {
-	hash_table_t *hashtable = malloc(sizeof(hash_table_t) * 1);
+	hash_table_t *hashtable = malloc(sizeof(hash_table_t));
 	unsigned long int i = 0;
 
-	hashtable->array = malloc(sizeof(hash_node_t*) * size);
+	hashtable->array = malloc(sizeof(hash_node_t *) * size);
 
-	if (hashtable->array == NULL)
-		return (NULL);
-
-	for (i = 0; i < size; ++i)
+	if (hashtable != NULL)
 	{
-		hashtable->array[i] = NULL;
+		if (hashtable->array == NULL)
+		{
+			return (NULL);
+		}
+		for (i = 0; i < size; ++i)
+		{
+			hashtable->array[i] = NULL;
+		}
+		return (hashtable);
 	}
-	return (hashtable);
+	if (hashtable != NULL)
+	{
+		free(hashtable);
+		free(hashtable->array);
+	}
+	return (NULL);
 }
