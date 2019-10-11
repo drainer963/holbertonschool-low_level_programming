@@ -1,6 +1,5 @@
 #ifndef HASH_TABLES_H
 #define HASH_TABLES_H
-#define TABLE_SIZE 10000
 #include <stdio.h>
 #include <stdarg.h>
 #include <unistd.h>
@@ -34,15 +33,16 @@ typedef struct hash_node_s
  */
 typedef struct hash_table_s
 {
-	size_t count;
 	unsigned long int size;
 	hash_node_t **array;
 } hash_table_t;
 
-
+hash_node_t *ht_pair(char *key, char *value);
+void hash_table_set(hash_table_t *hashtable, char *key, char *value);
+char *ht_get(hash_table_t *hashtable, char *key);
+void ht_print(hash_table_t *hashtable);
 unsigned long int hash_djb2(const unsigned char *str);
 hash_table_t *hash_table_create(unsigned long int size);
-int is_prime(const int x);
-int next_prime(int x);
+unsigned long hash(char *str);
 
 #endif

@@ -5,15 +5,14 @@
  *
  * Return: pointer to value
  */
-static unsigned long hash(str)unsigned char *str;
+unsigned long hash(char *str)
 {
-	unsigned long hash = 0;
+	unsigned int hash = 0;
 	int c;
 
 	while ((c = *str++))
-	{
-			hash = c + (hash << 6) + (hash << 16) - hash;
-	}
+		hash += c;
+
 	return hash;
 }
 
@@ -23,7 +22,7 @@ static unsigned long hash(str)unsigned char *str;
  * @value: const char
  * Return: pointer to node
  */
-hash_node_t *ht_pair(const char *key, const char *value)
+hash_node_t *ht_pair(char *key, char *value)
 {
 	hash_node_t *node = malloc(sizeof(hash_node_t) * 1);
 
@@ -39,48 +38,13 @@ hash_node_t *ht_pair(const char *key, const char *value)
 }
 
 /**
- * ht_set - sets value of node in table
- * @hashtable: table of nodes with key/value pairs
- * @key: pointer to key
- * @value: pointer to value
- *
- * Return: Always EXIT_SUCCESS.
- */
-void ht_set(hash_table_t *hashtable, const char *key, const char *value)
-{
-	unsigned int slot = hash(key);
-	hash_node_t *node = hashtable->array[slot];
-	hash_node_t *prev;
-
-	if (node == NULL)
-	{
-		hashtable->array[slot] = ht_pair(key, value);
-		return;
-	}
-	while (node != NULL)
-	{
-		if (strcmp(node->key, key) == 0)
-		{
-			free(node->value);
-			node->key = malloc(strlen(value) + 1);
-			strcpy(node->value, value);
-			return;
-		}
-
-		prev = node;
-		node = prev->next;
-	}
-	prev->next = ht_pair(key, value);
-}
-
-/**
  * ht_get - gets value of key in hashtable
  * @hashtable: table of nodes
  * @key: pointer to key
  *
  * Return: value
  */
-char *ht_get(hash_table_t *hashtable, const char *key)
+char *ht_get(hash_table_t *hashtable, char *key)
 {
 	unsigned int slot = hash(key);
 	hash_node_t *node = hashtable->array[slot];
@@ -132,4 +96,35 @@ hash_table_t *hash_table_create(unsigned long int size)
 		free(hashtable->array);
 	}
 	return (NULL);
+}
+
+void ht_print(hash_table_t *hashtable)
+{
+	unsigned long int i = 0;
+	hash_node_t *node;
+
+	for (i = 0; i < hashtable->size; ++i)
+	{
+		node = hashtable->array[i];
+
+		if (node == NULL)
+		{
+			continue;
+		}
+
+		printf("slot[%4lu]: ", i);
+
+		for (;;)
+		{
+			printf("%s=%s ", node->key, node->value);
+
+			if (node->next == NULL)
+			{
+				break;
+			}
+			node = node->next;
+		}
+
+		printf("\n");
+	}
 }
