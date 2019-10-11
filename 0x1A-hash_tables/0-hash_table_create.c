@@ -34,6 +34,7 @@ void ht_set(hash_table_t *hashtable, const char *key, const char *value)
 {
 	unsigned int slot = hash(key);
 	hash_node_t *node = hashtable->array[slot];
+	hash_node_t *prev;
 
 	if (node == NULL)
 	{
@@ -41,9 +42,7 @@ void ht_set(hash_table_t *hashtable, const char *key, const char *value)
 		return;
 	}
 
-	hash_node_t *prev;
-
-	while (node != NULL)
+      	while (node != NULL)
 	{
 		if (strcmp(node->key, key) == 0)
 		{
@@ -66,7 +65,7 @@ char *ht_get(hash_table_t *hashtable, const char *key)
 
 	if (node == NULL)
 	{
-		return (NULL);\
+		return (NULL);
 	}
 	while (node != NULL)
 	{
@@ -76,27 +75,23 @@ char *ht_get(hash_table_t *hashtable, const char *key)
 		}
 		node = node->next;
 	}
+
+	return (NULL);
 }
 
-hash_table_t *hash_table_create(unsigned long int size);
+hash_table_t *hash_table_create(unsigned long int size)
 {
 	hash_table_t *hashtable = malloc(sizeof(hash_table_t) * 1);
-	int i = 0;
+	unsigned long int i = 0;
 
-	hashtable->array = malloc(sizeof(hash_node_t*) * TABLE_SIZE);
+	hashtable->array = malloc(sizeof(hash_node_t*) * size);
 
-	for (i = 0; i < TABLE_SIZE; ++i)
+	if (hashtable->array == NULL)
+		return (NULL);
+
+	for (i = 0; i < size; ++i)
 	{
 		hashtable->array[i] = NULL;
 	}
 	return (hashtable);
-}
-
-int main()
-{
-	hash_table_t *ht = hash_table_create();
-
-	printf("%p\n", ht);
-
-	return;
 }

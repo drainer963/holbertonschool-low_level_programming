@@ -39,6 +39,8 @@ typedef struct hash_table_s
 	hash_node_t **array;
 } hash_table_t;
 
+
+hash_table_t *hash_table_create(unsigned long int size);
 int is_prime(const int x);
 int next_prime(int x);
 
