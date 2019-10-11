@@ -39,11 +39,11 @@ typedef struct hash_table_s
 
 hash_node_t *ht_pair(char *key, char *value);
 int hash_table_set(hash_table_t *hashtable, char *key, char *value);
-char *ht_get(hash_table_t *hashtable, char *key);
+char *hash_table_get(const hash_table_t *hashtable, const char *key);
 unsigned long int key_index(const unsigned char *key, unsigned long int size);
 void ht_print(hash_table_t *hashtable);
 unsigned long int hash_djb2(const unsigned char *str);
 hash_table_t *hash_table_create(unsigned long int size);
-unsigned long hash(char *str);
+unsigned long hash(const char *str);
 
 #endif
