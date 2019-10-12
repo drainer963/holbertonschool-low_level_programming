@@ -6,23 +6,23 @@
  *
  * Return: value
  */
+
 char *hash_table_get(const hash_table_t *ht, const char *key)
 {
-	unsigned long int slot = hash(key);
-	hash_node_t *node = ht->array[slot];
+	unsigned long int i;
+	hash_node_t *tmp = NULL;
 
-	if (node == NULL)
-	{
+	if (!ht || !key || !*key)
 		return (NULL);
-	}
-	while (node != NULL)
-	{
-		if (strcmp(node->key, key) == 0)
-		{
-			return (node->value);
-		}
-		node = node->next;
-	}
 
+	i = key_index((const unsigned char *)key, ht->size);
+	tmp = ht->array[i];
+
+	while (tmp)
+	{
+		if (strcmp(tmp->key, key) == 0)
+			return (tmp->value);
+		tmp = tmp->next;
+	}
 	return (NULL);
 }

@@ -12,7 +12,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	unsigned long int i;
 	hash_node_t *node, *temp = NULL;
 
-	if (!key)
+	if (!key || !value)
 		return (0);
 
 	if (!ht)
@@ -27,7 +27,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		{
 			free(node->value);
 			node->value = strdup(value);
-			if (!temp->value)
+			if (!node->value)
 				return (0);
 			return (1);
 		}
