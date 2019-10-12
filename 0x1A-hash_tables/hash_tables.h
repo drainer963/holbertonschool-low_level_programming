@@ -46,5 +46,6 @@ unsigned long int hash_djb2(const unsigned char *str);
 hash_table_t *hash_table_create(unsigned long int size);
 unsigned long hash(const char *str);
 void hash_table_print(const hash_table_t *ht);
+void hash_table_delete(hash_table_t *ht);
 
 #endif
