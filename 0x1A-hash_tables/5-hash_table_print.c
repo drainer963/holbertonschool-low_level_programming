@@ -7,22 +7,24 @@
  */
 void hash_table_print(const hash_table_t *ht)
 {
-	unsigned long int i = 0;
+	unsigned long int i = 0, t = 0;
 	hash_node_t *node;
+
+	if (!ht)
+		return;
 
 	printf("{");
 	for (i = 0; i < ht->size; ++i)
 	{
 		node = ht->array[i];
 
-		if (node == NULL)
+		while (node != NULL)
 		{
-			continue;
-		}
-		for (;;)
-		{
+			if (t == 0)
+				t = 1;
+			else
+				printf(", ");
 			printf("'%s': '%s'", node->key, node->value);
-
 			if (node->next == NULL)
 			{
 				break;
