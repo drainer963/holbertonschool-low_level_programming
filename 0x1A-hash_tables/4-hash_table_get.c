@@ -1,15 +1,14 @@
 #include "hash_tables.h"
-
 /**
- * ht_get - gets value of key in hashtable
- * @hashtable: table of nodes
+ * hash_table_get - gets value of key in hashtable
+ * @ht: table of nodes
  * @key: pointer to key
  *
  * Return: value
  */
 char *hash_table_get(const hash_table_t *ht, const char *key)
 {
-	unsigned int slot = hash(key);
+	unsigned long int slot = hash(key);
 	hash_node_t *node = ht->array[slot];
 
 	if (node == NULL)

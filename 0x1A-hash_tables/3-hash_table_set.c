@@ -9,7 +9,7 @@
  */
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
-	unsigned int slot = hash(key);
+	unsigned long int slot = hash(key);
 	hash_node_t *node = ht->array[slot];
 	hash_node_t *prev;
 
@@ -61,7 +61,7 @@ hash_node_t *ht_pair(const char *key, const char *value)
 
 /**
  * hash - hashes values for keys.
- * @key: const char pointer to keys in table
+ * @str: const char pointer to keys in table
  *
  * Return: pointer to value
  */
@@ -73,5 +73,5 @@ unsigned long hash(const char *str)
 	while ((c = *str++))
 		hash += c;
 
-	return hash;
+	return (hash);
 }
