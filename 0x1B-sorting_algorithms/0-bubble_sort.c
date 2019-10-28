@@ -1,19 +1,5 @@
 #include "sort.h"
 /**
- * swap - swap pointer values
- * @xp: x pointer
- * @yp: y pointer
- *
- * Return: Always 0
- */
-void swap(int *xp, int *yp)
-{
-	int temp = *xp;
-
-	*xp = *yp;
-	*yp = temp;
-}
-/**
  * bubble_sort - sort using bubble sort algorithm
  *
  * @array: The array to be printed
@@ -33,4 +19,19 @@ void bubble_sort(int *array, size_t size)
 				swap(&array[j], &array[j + 1]);
 				print_array(array, size);
 			}
+}
+
+/**
+ * swap - swap pointer values
+ * @xp: x pointer
+ * @yp: y pointer
+ *
+ * Return: Always 0
+ */
+void swap(int *xp, int *yp)
+{
+	int temp = *xp;
+
+	*xp = *yp;
+	*yp = temp;
 }
