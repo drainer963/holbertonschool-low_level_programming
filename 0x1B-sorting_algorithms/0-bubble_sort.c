@@ -7,7 +7,8 @@
  */
 void bubble_sort(int *array, size_t size)
 {
-	size_t i, j;
+	size_t i = 0, j = 0;
+	int temp = 0;
 
 	if (!array || !array || size < 2)
 		return;
@@ -16,22 +17,9 @@ void bubble_sort(int *array, size_t size)
 		for (j = 0; j < size - i - 1; j++)
 			if (array[j] > array[j + 1])
 			{
-				swap(&array[j], &array[j + 1]);
+				temp = array[j];
+				array[j] = array[j + 1];
+				array[j + 1] = temp;
 				print_array(array, size);
 			}
-}
-
-/**
- * swap - swap pointer values
- * @xp: x pointer
- * @yp: y pointer
- *
- * Return: Always 0
- */
-void swap(int *xp, int *yp)
-{
-	int temp = *xp;
-
-	*xp = *yp;
-	*yp = temp;
 }
