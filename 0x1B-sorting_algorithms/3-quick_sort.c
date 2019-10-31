@@ -60,13 +60,13 @@ int part(int *array, int first, int last, size_t size)
   return (i + 1);
 }
 /**
- * main - Entry point
+ * swap - Entry point
  * @a: int pointer
  * @b: int pointer
  *
  * Return: void
  */
-void swap(int* a, int* b)
+void swap(int *a, int *b)
 {
   int t = *a;
   *a = *b;
