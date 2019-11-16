@@ -1,0 +1,5 @@
+output: gcc main.c holberton.c
+	gcc main.o holberton.o -o holberton
+
+target:
+	make all
