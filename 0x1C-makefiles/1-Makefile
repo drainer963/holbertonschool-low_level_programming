@@ -1,12 +1,5 @@
-output: gcc main.c holberton.c
-	gcc main.o holberton.o -o holberton
+CC=gcc
+SRC=main.c holberton.c
 
-main.o: main.c
-	gcc -c main.c
-
-holberton.o:
-	holberton.c
-	gcc -c holberton.c
-
-target:
-	make all
+all: $(SRC)
+	$(CC) $(SRC) -o holberton
