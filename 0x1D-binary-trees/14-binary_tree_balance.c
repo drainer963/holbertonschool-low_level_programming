@@ -1,31 +1,26 @@
 #include "binary_trees.h"
-
-int _bt_height(const binary_tree_t *tree)
+/**
+ * max - return max value
+ * @a: a value
+ * @b: another value
+ *
+ * Return: The maximum of a and b
+ */
+size_t max(size_t a, size_t b)
 {
-  int rightdepth, leftdepth;
-  
+	return (a > b ? a : b);
+}
+size_t _binary_tree_height(const binary_tree_t *tree)
+{
   if (tree == NULL)
     return (0);
-  else
-    {
-      rightdepth = _bt_height(tree->right);
-      leftdepth = _bt_height(tree->left);
-
-      if (rightdepth < leftdepth)
-	return (leftdepth + 1);
-      else
-	return (rightdepth + 1);
-    }
-}
-
-int bt_height(const binary_tree_t *tree)
-{
-  if (!tree)
-    return (0);
-  
-  return (_bt_height(tree) - 1);
+  return (1 + max(
+		  _binary_tree_height(tree->left),
+		_binary_tree_height(tree->right)));
 }
 int binary_tree_balance(const binary_tree_t *tree)
 {
-  return (bt_height(tree->left) - bt_height(tree->right));
+  if (tree == NULL)
+    return (0);
+  return (_binary_tree_height(tree->left) - _binary_tree_height(tree->right));
 }
