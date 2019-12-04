@@ -1,8 +1,8 @@
-0x1D. C - Binary trees
+## 0x1D. C - Binary trees
 
 Foundations - Low-level programming & Algorithm ― Data structures and Algorithms
 
-Learning Objectives
+## Learning Objectives
 
 At the end of this project, you are expected to be able to explain to anyone, without the help of Google:
 General
@@ -14,7 +14,7 @@ General
     What are the different traversal methods to go through a binary tree
     What is a complete, a full, a perfect, a balanced binary tree
 
-Requirements
+## Requirements
 General
 
     Allowed editors: vi, vim, emacs
@@ -31,11 +31,13 @@ General
     Don’t forget to push your header file
     All your header files should be include guarded
 
-More Info
+## More Info
 Data structures
 
 Please use the following data structures and types for binary trees. Don’t forget to include them in your header file.
 Basic Binary Tree
+
+```
 
 /**
  * struct binary_tree_s - Binary tree node
@@ -55,17 +57,25 @@ struct binary_tree_s
 
 typedef struct binary_tree_s binary_tree_t;
 
+```
+
 Binary Search Tree
 
-typedef struct binary_tree_s bst_t;
 
+```
+typedef struct binary_tree_s bst_t;
+```
 AVL Tree
 
+```
 typedef struct binary_tree_s avl_t;
+```
 
 Max Binary Heap
 
+```
 typedef struct binary_tree_s heap_t;
+```
 
 Note: For tasks 0 to 23 (included), you have to deal with simple binary trees. They are not BSTs, thus they don’t follow any kind of rule.
 Print function
