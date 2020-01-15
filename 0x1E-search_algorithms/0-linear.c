@@ -7,16 +7,14 @@
 int linear_search(int *array, size_t size, int value)
 {
   size_t i = 0;
-  int found = 0;
   
-  for (i = 0; i <= size; i++)
+  for (i = 0; i < size; i++)
     {
       if (array[i] == value)
 	{
-	  found = 1;
 	  return (i);
 	}
+      printf("Value checked array[%lu] = [%d]\n", i, array[i]);
     }
-  found = -1;
-  return (found);
+  return (-1);
 }
